@@ -2038,6 +2038,7 @@ i.solitude {
   align-self: flex-start;
   animation: slide-in 0.6s 0.1s backwards;
   position: relative;
+  order: 2;
 }
 @media screen and (min-width: 768px) {
   .layout > #post,
@@ -2386,7 +2387,7 @@ span.tags-punctuation i {
   flex-direction: column;
   gap: var(--gap);
   animation: slide-in 0.6s 0.3s backwards;
-  order: 2;
+  order: 1;
 }
 .hide-aside #aside-content {
   display: none;
@@ -2398,7 +2399,7 @@ span.tags-punctuation i {
 }
 @media screen and (min-width: 1200px) {
   #aside-content {
-    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -4458,6 +4459,9 @@ span.tags-punctuation {
   outline-style: none;
   width: 100px;
 }
+#recent-posts {
+  order: 2;
+}
 @media screen and (max-width: 768px) {
   #category #recent-posts,
   #tag #recent-posts {
@@ -5382,10 +5386,10 @@ span.tags-punctuation {
   color: var(--efu-white);
 }
 #home {
-  order: 1;
+  order: 2;
 }
 #page {
-  order: 1;
+  order: 2;
 }
 #category #category-bar {
   padding: 0;
