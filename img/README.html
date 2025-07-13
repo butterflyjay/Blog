@@ -1,0 +1,37 @@
+<h1 id="信息卡背景图片说明"><a href="#信息卡背景图片说明" class="headerlink" title="信息卡背景图片说明"></a>信息卡背景图片说明</h1><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li><p><strong>准备图片</strong>：</p>
+<ul>
+<li>建议尺寸：300x320px 或更大</li>
+<li>格式：JPG、PNG、WebP</li>
+<li>文件大小：建议小于500KB</li>
+</ul>
+</li>
+<li><p><strong>放置图片</strong>：</p>
+<ul>
+<li>将图片放在 <code>themes/solitude/source/img/</code> 目录下</li>
+<li>例如：<code>info-card-bg.jpg</code></li>
+</ul>
+</li>
+<li><p><strong>配置背景</strong>：<br>在 <code>themes/solitude/_config.yml</code> 中设置：</p>
+<pre><code class="language-yaml">aside:
+  my_card:
+    background: /img/info-card-bg.jpg
+</code></pre>
+</li>
+</ol>
+<h2 id="图片建议"><a href="#图片建议" class="headerlink" title="图片建议"></a>图片建议</h2><ul>
+<li><strong>风格</strong>：与网站主题色调协调</li>
+<li><strong>内容</strong>：可以是抽象图案、风景、几何图形等</li>
+<li><strong>透明度</strong>：建议选择不太复杂的图片，避免影响文字可读性</li>
+<li><strong>对比度</strong>：确保文字在背景上清晰可见</li>
+</ul>
+<h2 id="示例图片"><a href="#示例图片" class="headerlink" title="示例图片"></a>示例图片</h2><ul>
+<li><code>info-card-bg.jpg</code> - 默认背景图片</li>
+<li><code>gradient-bg.jpg</code> - 渐变背景</li>
+<li><code>abstract-bg.jpg</code> - 抽象图案背景</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>图片路径以 <code>/img/</code> 开头</li>
+<li>支持相对路径和绝对路径</li>
+<li>如果配置为空，将使用默认渐变背景</li>
+</ul>
