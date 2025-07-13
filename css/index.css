@@ -2449,6 +2449,10 @@ span.tags-punctuation i {
   left: 0;
   top: 0;
   content: '';
+  z-index: -1;
+}
+.card-info.has-bg-image::before {
+  display: none;
 }
 .card-info:hover .avatar,
 .card-info:hover .sticker {
