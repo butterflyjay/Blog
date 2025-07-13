@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>在线工具 | 李嘉图</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.png"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=3.0.14"><!-- inject head--><link rel="canonical" href="https://butterflyjay.netlify.app/tlink/index.html"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"><!-- aplayer--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><!-- swiper--><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.css"><!-- fancybox ui--><!-- katex--><!-- Open Graph--><meta name="description" content="在线工具"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="李嘉图"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.png"><link rel="apple-touch-icon" href="/img/pwa/favicon.png" sizes="180x180"><script>console.log(' %c Solitude %c ' + '3.0.14' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>let mdate = "";
+mdate = (mdate.split(","));
+let ndate = new Date();
+for (let i of mdate) {
+    if (i === (ndate.getMonth()+1) + "-" + (ndate.getDate())) {
+        document.documentElement.classList.add('memorial');
+    }
+}
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+
+                if (name && keyObj[name]) return
+
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+            addEventListenerPjax: (ele, event, fn, option = false) => {
+              ele.addEventListener(event, fn, option)
+              utils.addGlobalFn('pjax', () => {
+                  ele.removeEventListener(event, fn, option)
+              })
+          },
+        }
+    })()</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: {"preload":true,"path":"/search.xml"},
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.avif'
+    },
+    copyright: false,
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 <b>${count}</b> 条结果。","loading":"搜索中..."}},
+    aside: {
+        state: {
+            morning: "✨ 早上好，新的一天开始了",
+            noon: "🍲 午餐时间",
+            afternoon: "🌞 下午好",
+            night: "早点休息",
+            goodnight: "晚安 😴",
+        },
+        witty_words: ["你可以的","你一定可以的","祝你好运，陌生人"],
+        witty_comment: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: true
+    },
+    comment: false,
+    lightbox: 'null',
+    right_menu: false,
+    translate: {"translateDelay":0,"defaultEncoding":2},
+    lure: false,
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: false,
+    is_page: true,
+    is_home: false,
+    page: 'tlink',
+    toc: false,
+    comment: false,
+    ai_text: false,
+    color: false,
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body id="body" data-type="tlink"><!-- universe--><canvas id="universe"></canvas><!-- background img--><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude fas fa-xmark"></i></div><div class="console-card-group"><div class="console-card-group-right"><div class="console-card tags" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><div class="author-content-item-title">寻找感兴趣的领域</div></div><div class="card-tag-cloud"></div></div><div class="console-card history" onclick="sco.hideConsole()"><ul class="card-archive-list"><li class="item"><a href="/archives/2025/03/"><span class="date">2025/03</span><div class="count-group"><span class="count">1</span><span class="unit">篇</span></div></a></li><li class="item"><a href="/archives/"><span class="date">全部文章</span><div class="count-group"><span class="count">1</span><span class="unit">篇</span></div></a></li></ul></div></div></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude fas fa-circle-half-stroke"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude fas fa-arrows-left-right-to-line"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude fas fa-circle-half-stroke"></i><span>显示模式</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  fas fa-folder-closed"></i><span>全部文章</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  fas fa-clone"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  fas fa-tags"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="solitude  fas fa-images"></i><span>我的图库</span></a></li><li><a class="site-page child" href="/tlink/"><i class="solitude  fas fa-toolbox"></i><span>在线工具</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  fas fa-music"></i><span>音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  fas fa-address-card"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="card-tag-cloud"></div></div></div></div><!-- keyboard--><!-- righhtside--><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span class="title">李嘉图</span><i class="solitude fas fa-home"></i></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">在线工具</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  fas fa-folder-closed"></i><span>全部文章</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  fas fa-clone"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  fas fa-tags"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/gallery/"><i class="solitude  fas fa-images"></i><span>我的图库</span></a></li><li><a class="site-page child" href="/tlink/"><i class="solitude  fas fa-toolbox"></i><span>在线工具</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  fas fa-music"></i><span>音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  fas fa-address-card"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索"><i class="solitude fas fa-magnifying-glass"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="中控台" href="javascript:void(0);"><label><i class="left"></i><i class="center"></i><i class="right"></i></label></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude fas fa-arrow-up"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude fas fa-bars"></i></a></div></div></div></nav></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="author-content author-content-item single sharePage" style="background: url(/img/default.avif) no-repeat center; background-size: cover;"><div class="card-content"><div class="author-content-item-tips"></div><span class="author-content-item-title">在线工具</span><div class="content-bottom"></div></div></div><div id="tools-container"><div class="tools-category"><div class="category-header"><h2 class="category-title">开发工具</h2><p class="category-description">程序员必备的开发工具和实用网站</p></div><div class="tools-grid"><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/3N10Ltv2/github.png" alt="GitHub"></div><div class="tool-info"><h3 class="tool-name">GitHub</h3><p class="tool-spec">代码托管平台</p><p class="tool-desc">全球最大的代码托管平台，支持Git版本控制</p></div><div class="tool-actions"><a class="tool-link" href="https://github.com" target="_blank" title="访问 GitHub"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://github.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/vBWVnY8q/stackoverflow.png" alt="Stack Overflow"></div><div class="tool-info"><h3 class="tool-name">Stack Overflow</h3><p class="tool-spec">程序员问答社区</p><p class="tool-desc">全球最大的程序员问答社区，解决编程问题</p></div><div class="tool-actions"><a class="tool-link" href="https://stackoverflow.com" target="_blank" title="访问 Stack Overflow"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://stackoverflow.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/8Pk6Fg24/mdn.png" alt="MDN Web Docs"></div><div class="tool-info"><h3 class="tool-name">MDN Web Docs</h3><p class="tool-spec">Web开发文档</p><p class="tool-desc">Mozilla提供的Web开发技术文档和教程</p></div><div class="tool-actions"><a class="tool-link" href="https://developer.mozilla.org" target="_blank" title="访问 MDN Web Docs"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://developer.mozilla.org&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/hPC7T3gB/codepen.png" alt="CodePen"></div><div class="tool-info"><h3 class="tool-name">CodePen</h3><p class="tool-spec">在线代码编辑器</p><p class="tool-desc">在线HTML、CSS、JavaScript代码编辑和分享平台</p></div><div class="tool-actions"><a class="tool-link" href="https://codepen.io" target="_blank" title="访问 CodePen"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://codepen.io&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div></div></div><div class="tools-category"><div class="category-header"><h2 class="category-title">设计工具</h2><p class="category-description">设计师和创作者常用的工具</p></div><div class="tools-grid"><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/dVLZBmtT/figma.png" alt="Figma"></div><div class="tool-info"><h3 class="tool-name">Figma</h3><p class="tool-spec">在线设计工具</p><p class="tool-desc">基于浏览器的协作式界面设计工具</p></div><div class="tool-actions"><a class="tool-link" href="https://figma.com" target="_blank" title="访问 Figma"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://figma.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/nhgjwjCS/canva.png" alt="Canva"></div><div class="tool-info"><h3 class="tool-name">Canva</h3><p class="tool-spec">在线设计平台</p><p class="tool-desc">简单易用的在线图形设计工具</p></div><div class="tool-actions"><a class="tool-link" href="https://canva.com" target="_blank" title="访问 Canva"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://canva.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/vBWVnY8q/unsplash.png" alt="Unsplash"></div><div class="tool-info"><h3 class="tool-name">Unsplash</h3><p class="tool-spec">免费图片素材</p><p class="tool-desc">高质量免费图片素材网站</p></div><div class="tool-actions"><a class="tool-link" href="https://unsplash.com" target="_blank" title="访问 Unsplash"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://unsplash.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/3N10Ltv2/colorhunt.png" alt="Color Hunt"></div><div class="tool-info"><h3 class="tool-name">Color Hunt</h3><p class="tool-spec">配色方案</p><p class="tool-desc">精选的配色方案集合</p></div><div class="tool-actions"><a class="tool-link" href="https://colorhunt.co" target="_blank" title="访问 Color Hunt"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://colorhunt.co&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div></div></div><div class="tools-category"><div class="category-header"><h2 class="category-title">实用工具</h2><p class="category-description">日常工作和学习中常用的实用工具</p></div><div class="tools-grid"><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/8Pk6Fg24/pdf.png" alt="在线PDF转换"></div><div class="tool-info"><h3 class="tool-name">在线PDF转换</h3><p class="tool-spec">PDF格式转换</p><p class="tool-desc">在线PDF转Word、Excel、PPT等格式</p></div><div class="tool-actions"><a class="tool-link" href="https://smallpdf.com" target="_blank" title="访问 在线PDF转换"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://smallpdf.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/hPC7T3gB/tinypng.png" alt="图片压缩"></div><div class="tool-info"><h3 class="tool-name">图片压缩</h3><p class="tool-spec">图片压缩工具</p><p class="tool-desc">在线图片压缩，保持质量的同时减小文件大小</p></div><div class="tool-actions"><a class="tool-link" href="https://tinypng.com" target="_blank" title="访问 图片压缩"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://tinypng.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/dVLZBmtT/qr.png" alt="二维码生成"></div><div class="tool-info"><h3 class="tool-name">二维码生成</h3><p class="tool-spec">二维码生成器</p><p class="tool-desc">在线生成各种类型的二维码</p></div><div class="tool-actions"><a class="tool-link" href="https://qr-code-generator.com" target="_blank" title="访问 二维码生成"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://qr-code-generator.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/nhgjwjCS/translate.png" alt="在线翻译"></div><div class="tool-info"><h3 class="tool-name">在线翻译</h3><p class="tool-spec">多语言翻译</p><p class="tool-desc">支持多种语言的在线翻译工具</p></div><div class="tool-actions"><a class="tool-link" href="https://translate.google.com" target="_blank" title="访问 在线翻译"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://translate.google.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div></div></div><div class="tools-category"><div class="category-header"><h2 class="category-title">学习资源</h2><p class="category-description">优质的学习平台和资源</p></div><div class="tools-grid"><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/vBWVnY8q/coursera.png" alt="Coursera"></div><div class="tool-info"><h3 class="tool-name">Coursera</h3><p class="tool-spec">在线课程平台</p><p class="tool-desc">来自世界顶尖大学的在线课程</p></div><div class="tool-actions"><a class="tool-link" href="https://coursera.org" target="_blank" title="访问 Coursera"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://coursera.org&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/3N10Ltv2/khan.png" alt="Khan Academy"></div><div class="tool-info"><h3 class="tool-name">Khan Academy</h3><p class="tool-spec">免费教育平台</p><p class="tool-desc">提供免费的高质量教育内容</p></div><div class="tool-actions"><a class="tool-link" href="https://khanacademy.org" target="_blank" title="访问 Khan Academy"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://khanacademy.org&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/8Pk6Fg24/w3schools.png" alt="W3Schools"></div><div class="tool-info"><h3 class="tool-name">W3Schools</h3><p class="tool-spec">Web开发教程</p><p class="tool-desc">学习Web开发技术的在线教程网站</p></div><div class="tool-actions"><a class="tool-link" href="https://w3schools.com" target="_blank" title="访问 W3Schools"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://w3schools.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div><div class="tool-card"><div class="tool-icon"><img src="https://i.postimg.cc/hPC7T3gB/leetcode.png" alt="LeetCode"></div><div class="tool-info"><h3 class="tool-name">LeetCode</h3><p class="tool-spec">编程练习平台</p><p class="tool-desc">程序员刷题和面试准备的平台</p></div><div class="tool-actions"><a class="tool-link" href="https://leetcode.com" target="_blank" title="访问 LeetCode"><i class="solitude fas fa-external-link-alt"></i><span>访问</span></a><button class="tool-copy" onclick="utils.copy(&quot;https://leetcode.com&quot;)" title="复制链接"><i class="solitude fas fa-copy"></i><span>复制链接 </span></button></div></div></div></div></div></div></main><footer id="footer"><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2025 By&nbsp;<a class="footer-bar-link" href="/"><img class="author-avatar" src="/img/pwa/favicon.png">李嘉图</a></div><div class="beian-group"></div></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=3.0.14"></script><script src="/js/main.js?v=3.0.14"></script><script src="/js/third_party/waterfall.min.js?v=3.0.14"></script><script src="https://fastly.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=3.0.14"></script><script>dark()
+</script><script src="/js/tw_cn.js?v=3.0.14"></script><script src="https://fastly.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script src="https://fastly.jsdelivr.net/npm/swiper@11.0.5/swiper-bundle.min.js"></script><script>var meting_api = 'https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r';</script><script src="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><script src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script><script src="https://fastly.jsdelivr.net/npm/colorthief@2.6.0/dist/color-thief.min.js"></script><script src="/js/covercolor/local.js?v=3.0.14"></script><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+utils.addGlobalFn('pjaxSend', () => {
+  Pace.restart()
+}, 'pace_restart')
+</script><script src="https://fastly.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ["title","#body-wrap","#site-config","meta[name=\"description\"]",".js-pjax","meta[property^=\"og:\"]","#config-diff",".rs_show",".rs_hide"],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- google adsense--><!-- search--><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="solitude fas fa-xmark"></i></button></nav><div class="search-wrap"><div class="search-box"><input class="search-box-input" id="search-input" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="输入关键词快速查找"></div><div id="search-results"><div id="search-hits"></div></div><div id="search-pagination"></div><div id="search-tips"></div></div></div><div id="search-mask"></div></div><script src="/js/search/local.js?v=3.0.14"></script><!-- music--></body></html>
+        <script>
+            const posts = ["posts/4a17b156.html"];
+            function toRandomPost() {
+                const randomPost = posts[Math.floor(Math.random() * posts.length)];
+                pjax.loadUrl(GLOBAL_CONFIG.root + randomPost);
+            }
+        </script>

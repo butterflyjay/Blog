@@ -9035,6 +9035,140 @@ div#banners .bannerText {
     opacity: 1;
   }
 }
+#tools-container {
+  margin-top: 1rem;
+}
+#tools-container .tools-category {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--efu-card-bg);
+  border-radius: 12px;
+  border: var(--style-border);
+  box-shadow: var(--efu-shadow-border);
+}
+#tools-container .tools-category .category-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+#tools-container .tools-category .category-header .category-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--efu-fontcolor);
+  margin-bottom: 0.5rem;
+}
+#tools-container .tools-category .category-header .category-description {
+  color: var(--efu-secondtext);
+  font-size: 0.9rem;
+  margin: 0;
+}
+#tools-container .tools-category .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+#tools-container .tools-category .tools-grid .tool-card {
+  background: var(--efu-background);
+  border-radius: 8px;
+  padding: 1rem;
+  border: var(--style-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+#tools-container .tools-category .tools-grid .tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--efu-shadow-main);
+  border: var(--style-border-hover);
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--efu-secondbg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-info {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-info .tool-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--efu-fontcolor);
+  margin: 0 0 0.5rem 0;
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-info .tool-spec {
+  font-size: 0.8rem;
+  color: var(--efu-main);
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-info .tool-desc {
+  font-size: 0.85rem;
+  color: var(--efu-secondtext);
+  line-height: 1.4;
+  margin: 0;
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-actions .tool-link,
+#tools-container .tools-category .tools-grid .tool-card .tool-actions .tool-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-actions .tool-link {
+  background: var(--efu-main);
+  color: var(--efu-white);
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-actions .tool-link:hover {
+  background: var(--efu-theme);
+  transform: scale(1.05);
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-actions .tool-copy {
+  background: var(--efu-secondbg);
+  color: var(--efu-fontcolor);
+}
+#tools-container .tools-category .tools-grid .tool-card .tool-actions .tool-copy:hover {
+  background: var(--efu-lighttext);
+  color: var(--efu-card-bg);
+}
+@media screen and (max-width: 768px) {
+  #tools-container .tools-grid {
+    grid-template-columns: 1fr;
+  }
+  #tools-container .tool-card {
+    padding: 0.8rem;
+  }
+  #tools-container .tool-card .tool-icon {
+    width: 50px;
+    height: 50px;
+  }
+  #tools-container .tool-card .tool-icon img {
+    width: 35px;
+    height: 35px;
+  }
+}
 [data-theme=dark] {
   --efu-theme: #ffc848;
   --efu-theme-op: rgba(255,200,72,0.137);
